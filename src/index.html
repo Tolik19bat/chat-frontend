@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat</title>
+</head>
+
+<body>
+  <div id="root">
+    <div class="modal__form active">
+      <div class="modal__background">
+        <div class="modal__content">
+          <div class="modal__header">Выберите псевдоним</div>
+          <div class="modal__body">
+            <form class="modal__form_group">
+              <label for="input" class="formlabel"></label>
+              <input type="text" class="form__input modal__input" id="input">
+              <div class="modal__warning hidden">Этот псевдоним уже используется</div>
+              <button type="submit" class="btn__continue">Продолжить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="chat__header"></div>
+      <button class="chat__disconnect">Выход</button>
+      <div class="chat__container">
+        <div class="chat__userlist">
+        </div>
+        <div class="chat__area">
+          <div class="chat__messages-container">
+          </div>
+          <form class="chat__messages-form form">
+            <input type="text" class="form__input chat__messages-input">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
