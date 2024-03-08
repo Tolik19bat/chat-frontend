@@ -2,7 +2,7 @@
 import createRequest from "./createRequest";
 
 // Константа HOST, содержащая базовый URL для API чата
-const HOST = "https://chat-backend-fvcz.onrender.com/";
+const HOST = "https://chat-backend-v5ut.onrender.com/";
 
 // Экспорт класса ChatAPI для использования в других модулях
 export default class ChatAPI {
@@ -20,7 +20,7 @@ export default class ChatAPI {
   // Метод start, инициализирующий соединение WebSocket для получения сообщений из чата
   start(callback) {
     // Создание нового WebSocket соединения с сервером чата
-    this.ws = new WebSocket("wss://chat-backend-fvcz.onrender.com/ws");
+    this.ws = new WebSocket("wss://chat-backend-v5ut.onrender.com/ws");
 
     // Добавление слушателя события "message" для обработки полученных сообщений
     this.ws.addEventListener("message", (e) => {
