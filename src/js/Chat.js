@@ -10,6 +10,12 @@ export default class Chat {
     this.api = new ChatAPI();
     // Устанавливаем websocket в null, будем использовать его для связи с сервером
     this.websocket = null;
+    // Изначально данные не загружены
+    this.dataLoaded = false;
+    // Состояние кнопки отправки сообщения
+    this.sendMessageButton = this.container.querySelector(
+      ".send-message-button"
+    );
   }
 
   // Метод инициализации чата
@@ -92,6 +98,8 @@ export default class Chat {
       } else {
         this.renderMessage(data);
       }
+      // Вызываем метод для обработки успешной загрузки данных
+      this.onDataLoaded();
     });
   }
 
@@ -178,5 +186,63 @@ export default class Chat {
     this.api.close(this.userName);
     // Рендерим модальное окно для входа в чат
     this.renderModalForm();
+  }
+  // Включает кнопку отправки сообщения
+  enableSendMessageButton() {
+    this.sendMessageButton.disabled = false;
+  }
+
+  // Отключает кнопку отправки сообщения
+  disableSendMessageButton() {
+    this.sendMessageButton.disabled = true;
+  }
+
+  // Проверяет, загружены ли данные с сервера и соответственно включает или отключает кнопку отправки сообщения
+  checkDataLoaded() {
+    if (this.dataLoaded) {
+      this.enableSendMessageButton();
+    } else {
+      this.disableSendMessageButton();
+    }
+  }
+
+  // Метод для обновления состояния кнопки отправки сообщения
+  updateSendMessageButtonState() {
+    this.checkDataLoaded();
+    // Вы можете вызывать этот метод в других местах, когда хотите обновить состояние кнопки отправки сообщения
+  }
+
+  // Метод для успешной загрузки данных
+  onDataLoaded() {
+    this.dataLoaded = true;
+    // Обновляем состояние кнопки отправки сообщения
+    this.updateSendMessageButtonState();
+  }
+
+  // Метод для сброса состояния загрузки данных (например, если данные не удалось загрузить)
+  resetDataLoadingState() {
+    this.dataLoaded = false;
+    // Обновляем состояние кнопки отправки сообщения
+    this.updateSendMessageButtonState();
+  }
+
+  // Метод для обработки ошибок при загрузке данных
+  onDataLoadingError() {
+    this.resetDataLoadingState(); // Сбрасываем состояние загрузки данных
+    // Можно добавить дополнительную обработку ошибки здесь
+  }
+
+  // Пример метода, который загружает данные и обрабатывает возможные ошибки
+  fetchData() {
+    this.api
+      .fetchData()
+      .then((data) => {
+        this.renderData(data);
+        this.onDataLoaded(); // Вызываем метод для обработки успешной загрузки данных
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        this.onDataLoadingError(); // Вызываем метод для обработки ошибки загрузки данных
+      });
   }
 }
