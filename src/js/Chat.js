@@ -101,6 +101,8 @@ export default class Chat {
       }
       // Вызываем метод для обработки успешной загрузки данных
       this.onDataLoaded();
+      // Обновляем состояние кнопки отправки сообщения после загрузки данных
+      this.updateSendMessageButtonState();
     });
   }
 
