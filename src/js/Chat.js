@@ -32,6 +32,7 @@ export default class Chat {
     // для входа в чат и фокуса на поле ввода
     this.modalFormEl = this.container.querySelector(".modal__form");
     this.modalFormGroupEl = this.container.querySelector(".modal__form_group");
+    this.modalWarningEl = this.container.querySelector(".modal__warning");
     this.onEnterChatHandler = this.onEnterChatHandler.bind(this);
     this.modalFormGroupEl.addEventListener("submit", this.onEnterChatHandler);
     this.modalInputEl = this.container.querySelector(".modal__input");
