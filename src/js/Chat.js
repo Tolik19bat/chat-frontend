@@ -61,6 +61,7 @@ export default class Chat {
 
     // Получаем ссылку на элемент <span>
     this.infoHintElement = this.container.querySelector("#info-hint");
+    console.log(this.infoHintElement);
   }
 
   // Рендерит модальное окно для входа в чат
