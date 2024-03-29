@@ -197,7 +197,9 @@ export default class Chat {
   }
   // Включает кнопку отправки сообщения
   enableSendMessageButton() {
-    this.sendMessageButton.disabled = false;
+    if (this.sendMessageButton) {
+      this.sendMessageButton.disabled = false;
+    }
   }
 
   // Отключает кнопку отправки сообщения
