@@ -16,6 +16,7 @@ export default class Chat {
     this.sendMessageButton = this.container.querySelector(
       ".send-message-button"
     );
+    console.log(this.sendMessageButton);
   }
 
   // Метод инициализации чата
