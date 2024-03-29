@@ -12,11 +12,6 @@ export default class Chat {
     this.websocket = null;
     // Изначально данные не загружены
     this.dataLoaded = false;
-    // Состояние кнопки отправки сообщения
-    this.sendMessageButton = this.container.querySelector(
-      ".send-message-button"
-    );
-    console.log(this.sendMessageButton);
   }
 
   // Метод инициализации чата
@@ -63,6 +58,12 @@ export default class Chat {
     // Получаем ссылку на элемент <span>
     this.infoHintElement = this.container.querySelector("#info-hint");
     console.log(this.infoHintElement);
+
+    // Состояние кнопки отправки сообщения
+    this.sendMessageButton = this.container.querySelector(
+      ".send-message-button"
+    );
+    console.log(this.sendMessageButton);
   }
 
   // Рендерит модальное окно для входа в чат
