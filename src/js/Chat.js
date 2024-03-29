@@ -217,9 +217,9 @@ export default class Chat {
   // Метод для обновления текста в теге <span> после успешной загрузки данных с сервера
   renderDataFromServer() {
     // Получаем ссылку на элемент <span>
-    const infoHintElement = document.getElementById("info-hint");
+    this.infoHintElement = this.document.getElementById("info-hint");
     // Меняем текст в элементе
-    infoHintElement.textContent = "Данные успешно загружены с сервера!";
+    this.infoHintElement.textContent = "Данные успешно загружены с сервера!";
   }
 
   // Метод для успешной загрузки данных
