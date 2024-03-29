@@ -58,6 +58,9 @@ export default class Chat {
     this.chatMessageInputEl = this.container.querySelector(
       ".chat__messages-input"
     );
+
+    // Получаем ссылку на элемент <span>
+    this.infoHintElement = this.container.querySelector("#info-hint");
   }
 
   // Рендерит модальное окно для входа в чат
@@ -216,8 +219,6 @@ export default class Chat {
 
   // Метод для обновления текста в теге <span> после успешной загрузки данных с сервера
   renderDataFromServer() {
-    // Получаем ссылку на элемент <span>
-    this.infoHintElement = this.document.getElementById("info-hint");
     // Меняем текст в элементе
     this.infoHintElement.textContent = "Данные успешно загружены с сервера!";
   }
