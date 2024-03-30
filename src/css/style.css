@@ -78,6 +78,22 @@ h1 {
   box-sizing: border-box;
 }
 
+.info {
+  animation: blink 2s linear infinite; /* 2s - это время между миганиями */
+}
+
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  10% {
+      opacity: 0.5;
+  }
+}
+
 .send-message-button {
   display: none;
 }
