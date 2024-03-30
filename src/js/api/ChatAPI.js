@@ -2,7 +2,7 @@
 import createRequest from "./createRequest";
 
 // Константа HOST, содержащая базовый URL для API чата
-const HOST = "https://chat-backend-v5ut.onrender.com/";
+const HOST = "https://chat-backend-fwga.onrender.com";
 
 // Экспорт класса ChatAPI для использования в других модулях
 export default class ChatAPI {
