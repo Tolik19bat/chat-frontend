@@ -80,6 +80,8 @@ h1 {
 
 .info {
   animation: blink 2s linear infinite; /* 2s - это время между миганиями */
+  font-size: 12px;
+  margin-left: 11px;
 }
 
 @keyframes blink {
