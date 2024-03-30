@@ -20,7 +20,7 @@ export default class ChatAPI {
   // Метод start, инициализирующий соединение WebSocket для получения сообщений из чата
   start(callback) {
     // Создание нового WebSocket соединения с сервером чата
-    this.ws = new WebSocket("wss://chat-backend-v5ut.onrender.com/ws");
+    this.ws = new WebSocket("wss://chat-backend-fwga.onrender.com/ws");
 
     // Добавление слушателя события "message" для обработки полученных сообщений
     this.ws.addEventListener("message", (e) => {
