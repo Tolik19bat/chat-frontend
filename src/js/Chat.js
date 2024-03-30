@@ -57,13 +57,11 @@ export default class Chat {
 
     // Получаем ссылку на элемент <span>
     this.infoHintElement = this.container.querySelector("#info-hint");
-    console.log(this.infoHintElement);
 
     // Состояние кнопки отправки сообщения
     this.sendMessageButton = this.container.querySelector(
       ".send-message-button"
     );
-    console.log(this.sendMessageButton);
   }
 
   // Рендерит модальное окно для входа в чат
@@ -182,17 +180,22 @@ export default class Chat {
     const messageText = document.createElement("div");
     messageText.classList.add("message__text");
     messageText.textContent = data.text;
-    messageContainerEl.insertAdjacentElement("beforeend", messageText);
-    this.chatMessageContainerEl.insertAdjacentElement(
-      "afterbegin",
-      messageContainerEl
-    );
+    messageContainerEl.appendChild(messageText);
+    // Добавляем контейнер сообщения в конец контейнера сообщений
+    this.chatMessageContainerEl.appendChild(messageContainerEl);
   }
 
   // Закрывает чат
   closeChat() {
     // Вызываем метод close API для закрытия чата пользователя
     this.api.close(this.userName);
+    // Удаляем пользователя из списка пользователей
+    const userElementToRemove = this.chatUserListEl.querySelector(
+      `#user_${this.userName}`
+    );
+    if (userElementToRemove) {
+      userElementToRemove.remove();
+    }
     // Рендерим модальное окно для входа в чат
     this.renderModalForm();
   }
@@ -225,7 +228,7 @@ export default class Chat {
   // Метод для обновления текста в теге <span> после успешной загрузки данных с сервера
   renderDataFromServer() {
     // Меняем текст в элементе
-    this.infoHintElement.innerHTML = "Данные успешно загружены с сервера!";
+    this.infoHintElement.innerHTML = " ";
   }
 
   // Метод для успешной загрузки данных

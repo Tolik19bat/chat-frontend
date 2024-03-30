@@ -71,11 +71,15 @@ h1 {
 }
 
 .chat__messages-container {
-  flex: 0 0 90%;
+  flex: 0 0 85%;
   border-top-left-radius: 7px;
   overflow-y: auto;
   padding: 5px;
   box-sizing: border-box;
+}
+
+.send-message-button {
+  display: none;
 }
 
 .chat__messages-form {
